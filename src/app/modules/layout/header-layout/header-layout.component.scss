@@ -1,0 +1,12 @@
+@import './../../../../assets/styles/colors.scss';
+
+.header {
+    height: 148px;
+    width: 100%;
+    background: $header-color;
+}
+
+.main {
+    margin: auto;
+    padding: 30px 30px;
+}

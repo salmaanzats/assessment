@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+@import './assets/styles/colors.scss';
+@import './assets/styles/typo.scss';
+
+body {
+    display: block;
+    margin: 0;
+    font-family: $font-family;
+}
+
+.d-flex {
+    display: flex;
+}
