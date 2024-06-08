@@ -1,22 +1,33 @@
-<table class="rounded-corners">
-    <thead>
-        <th>Content</th>
-        <th>Type</th>
-        <th>Skill</th>
-        <th>Date Completed</th>
-        <th>Duration</th>
-        <th>Result</th>
-    </thead>
-    <tbody>
-        <ng-container *ngFor="let activity of activites">
-            <tr *ngFor="let attempt of activity.attempts.weeks; let i = index">
-                <td>{{activity.content}}</td>
-                <td>{{activity.type}}</td>
-                <td>{{activity.skill}}</td>
-                <td>{{attempt}}</td>
-                <td>{{activity.time}}</td>
-                <td>{{activity.attempts.values[i]}}</td>
-            </tr>
-        </ng-container>
-    </tbody>
-</table>
+<div>
+
+
+</div>
+
+
+<section>
+    <table class="rounded-corners">
+        <thead>
+            <th>Content</th>
+            <th>Type</th>
+            <th>Skill</th>
+            <th>Date Completed</th>
+            <th>Duration</th>
+            <th>Result</th>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let activity of activites">
+                <tr *ngFor="let attempt of activity.attempts.weeks; let i = index">
+                    <td>{{activity.content}}</td>
+                    <td>{{activity.type}}</td>
+                    <td>{{activity.skill}}</td>
+                    <td>{{attempt}}</td>
+                    <td>{{activity.time }}</td>
+                    <td>
+                        <span class="fw-700"
+                            [matificMarkColor]="activity.attempts.values[i]">{{activity.attempts.values[i]}} %</span>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</section>

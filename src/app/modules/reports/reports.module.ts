@@ -4,8 +4,6 @@ import { StudentActivityReportComponent } from './student-activity-report/studen
 import { ReportsRoutingModule } from './reports-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
-
-
 @NgModule({
   declarations: [
     StudentActivityReportComponent
