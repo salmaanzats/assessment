@@ -24,9 +24,10 @@ export class StudentActivityReportComponent implements OnInit {
   getStudentActivites() {
     this.isBlocked = true;
     this.reportService.getStudentActivities().subscribe({
-      next: (activites: ResponseResult<StudentActivityReportModel[]>) => {
+      next: (activity: any) => {
         this.isBlocked = false;
-        console.log(activites);
+        this.activites = JSON.parse(activity.body);
+        console.log(this.activites );
       },
       error: (err) => {
         this.isBlocked = false;

@@ -1,4 +1,4 @@
-<table>
+<table class="rounded-corners">
     <thead>
         <th>Content</th>
         <th>Type</th>
@@ -8,13 +8,15 @@
         <th>Result</th>
     </thead>
     <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        <ng-container *ngFor="let activity of activites">
+            <tr *ngFor="let attempt of activity.attempts.weeks; let i = index">
+                <td>{{activity.content}}</td>
+                <td>{{activity.type}}</td>
+                <td>{{activity.skill}}</td>
+                <td>{{attempt}}</td>
+                <td>{{activity.time}}</td>
+                <td>{{activity.attempts.values[i]}}</td>
+            </tr>
+        </ng-container>
     </tbody>
 </table>
