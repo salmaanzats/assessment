@@ -2,19 +2,18 @@
 
 table {
     width: 100%;
-    border: 1px solid #ccc;
-    ;
+    border: 1px solid $grey;
     border-collapse: collapse;
 }
 
 th {
-    background: #ccc;
+    background: $grey;
     text-align: left;
 }
 
 th,
 td {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $grey;
     padding: 8px;
 }
 
@@ -40,6 +39,14 @@ select {
     display: flex;
     padding: 20px;
     border: 1px solid $grey;
-    gap: 5px;
+    gap: 15px;
     border-radius: 5px;
+}
+
+.calendar {
+    height: 69px !important;
+}
+
+.f-31 {
+    flex: 31%
 }

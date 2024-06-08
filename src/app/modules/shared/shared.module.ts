@@ -6,24 +6,30 @@ import { NoRecordsComponent } from './components/no-records/no-records.component
 import { HttpClientModule } from '@angular/common/http';
 import { MarkColorDirective } from './directives/mark-color.directive';
 import { FormsModule } from '@angular/forms';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
     BlockUiComponent,
     PageNotFoundComponent,
     NoRecordsComponent,
-    MarkColorDirective
+    MarkColorDirective,
   ],
   imports: [
     CommonModule,
     HttpClientModule,
-    FormsModule      
+    FormsModule,
+    MatDatepickerModule,
+    MatFormFieldModule       
   ],
   exports: [
     BlockUiComponent,
     NoRecordsComponent,
     MarkColorDirective,
-    FormsModule      
+    FormsModule,
+    MatDatepickerModule,
+    MatFormFieldModule       
   ]
 })
 export class SharedModule { }

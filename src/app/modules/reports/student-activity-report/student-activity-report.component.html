@@ -1,7 +1,7 @@
 <matific-block-ui [isBlocked]="isBlocked"></matific-block-ui>
 
 <div class="filter-group mb-20">
-    <div class="selection">
+    <div class="selection f-31">
         <label>Class</label>
         <div class="custom-select">
             <select name="class" id="class" [(ngModel)]="filterModel.selectedClass" (change)="getStudents($event)">
@@ -11,14 +11,33 @@
         </div>
     </div>
 
-    <div class="selection">
+    <div class="selection f-31">
         <label>Student</label>
         <div class="custom-select">
-            <select name="class" id="class" [(ngModel)]="filterModel.selectedStudent" (change)="filter($event)">
+            <select name="class" id="class" [(ngModel)]="filterModel.selectedStudent" (change)="filter()">
                 <option [value]="''">Select a Student</option>
                 <option *ngFor="let student of students" [value]="student">{{student}}</option>
             </select>
         </div>
+    </div>
+
+    <div class="f-31">
+        <div>
+            <label>Date Range</label>
+        </div>
+        <mat-form-field class="calendar">
+            <mat-date-range-input [rangePicker]="picker">
+                <input matStartDate placeholder="Start date" [(ngModel)]="filterModel.fromDate">
+                <input matEndDate placeholder="End date" [(ngModel)]="filterModel.toDate">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker>
+                <mat-date-range-picker-actions>
+                    <button mat-button matDateRangePickerCancel>Cancel</button>
+                    <button mat-raised-button color="primary" matDateRangePickerApply (click)="filter()">Apply</button>
+                </mat-date-range-picker-actions>
+            </mat-date-range-picker>
+        </mat-form-field>
     </div>
 </div>
 

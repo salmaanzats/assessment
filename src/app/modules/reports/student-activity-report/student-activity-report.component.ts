@@ -4,11 +4,13 @@ import { ReportService } from '../services/report.service';
 import { forkJoin } from 'rxjs/internal/observable/forkJoin';
 import { ClassModel } from '../models/class.model';
 import { ActivityFilterModel } from '../models/activity-filter.model';
+import { provideNativeDateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'matific-student-activity-report',
   templateUrl: './student-activity-report.component.html',
-  styleUrl: './student-activity-report.component.scss'
+  styleUrl: './student-activity-report.component.scss',
+  providers: [provideNativeDateAdapter()],
 })
 
 
@@ -54,13 +56,21 @@ export class StudentActivityReportComponent implements OnInit {
 
   getStudents(event: any) {
     let selectedClass = event.target.value;
-    this.students = this.classes.find(p => p.id == selectedClass)?.students!;
+    this.filterModel.selectedStudent = '';
 
-    this.filteredActivities = this.activites.filter(p => this.students.includes(p.student));
+    if (selectedClass != '')
+      this.students = this.classes.find(p => p.id == selectedClass)?.students!;
+
+    this.filter();
   }
 
-  filter(event: any) {
-    let selectedStudent = event.target.value;
-    this.filteredActivities = this.activites.filter(p => p.student == selectedStudent);
+  filter() {
+    this.filteredActivities = [...this.activites];
+
+    if (this.filterModel.selectedClass != '')
+      this.filteredActivities = this.filteredActivities.filter(p => this.students.includes(p.student));
+
+    if (this.filterModel.selectedStudent != '')
+      this.filteredActivities = this.filteredActivities.filter(p => p.student == this.filterModel.selectedStudent);
   }
 }
