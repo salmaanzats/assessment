@@ -10,3 +10,25 @@
     margin: auto;
     padding: 30px 30px;
 }
+
+.user {
+    display: flex;
+    justify-content: end;
+    padding: 17px;
+    gap: 20px;
+}
+
+.ml-36 {
+    margin-left: 36px;
+}
+
+.btn-logout {
+    background: #ff500e;
+    border: none;
+    border-radius: 6px;
+
+    &:hover {
+        cursor: pointer;
+        color: $header-color;
+    }
+}
