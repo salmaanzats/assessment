@@ -15,7 +15,7 @@ export class ReportService extends BaseService {
     }
 
     getStudentActivities(): Observable<any> {
-        return this.get<any>(`production/matific-test-activities`);
+        return this.get<any>(`production/matific-test-classes`);
     }
 }
 
