@@ -1,8 +1,26 @@
-<div>
+<matific-block-ui [isBlocked]="isBlocked"></matific-block-ui>
 
+<div class="filter-group mb-20">
+    <div class="selection">
+        <label>Class</label>
+        <div class="custom-select">
+            <select name="class" id="class" [(ngModel)]="filterModel.selectedClass" (change)="getStudents($event)">
+                <option [value]="''">Select a Class</option>
+                <option *ngFor="let class of classes" [value]="class.id">{{class.name}}</option>
+            </select>
+        </div>
+    </div>
 
+    <div class="selection">
+        <label>Student</label>
+        <div class="custom-select">
+            <select name="class" id="class" [(ngModel)]="filterModel.selectedStudent" (change)="filter($event)">
+                <option [value]="''">Select a Student</option>
+                <option *ngFor="let student of students" [value]="student">{{student}}</option>
+            </select>
+        </div>
+    </div>
 </div>
-
 
 <section>
     <table class="rounded-corners">
@@ -15,7 +33,7 @@
             <th>Result</th>
         </thead>
         <tbody>
-            <ng-container *ngFor="let activity of activites">
+            <ng-container *ngFor="let activity of filteredActivities">
                 <tr *ngFor="let attempt of activity.attempts.weeks; let i = index">
                     <td>{{activity.content}}</td>
                     <td>{{activity.type}}</td>
@@ -30,4 +48,5 @@
             </ng-container>
         </tbody>
     </table>
+    <matific-no-records [items]="filteredActivities"></matific-no-records>
 </section>

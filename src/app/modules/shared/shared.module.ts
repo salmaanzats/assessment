@@ -5,6 +5,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { NoRecordsComponent } from './components/no-records/no-records.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MarkColorDirective } from './directives/mark-color.directive';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,13 @@ import { MarkColorDirective } from './directives/mark-color.directive';
   imports: [
     CommonModule,
     HttpClientModule,
+    FormsModule      
   ],
   exports: [
-    MarkColorDirective
+    BlockUiComponent,
+    NoRecordsComponent,
+    MarkColorDirective,
+    FormsModule      
   ]
 })
 export class SharedModule { }
