@@ -4,5 +4,5 @@ Github URL : https://github.com/salmaanzats/assessment
 
 ## Development server
 
-1. Run NPM install
-2. run Npm Start or ng serve --proxy-config proxy.conf.json
+1. Run npm install
+2. Run npm Start or ng serve --proxy-config proxy.conf.json
