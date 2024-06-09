@@ -38,7 +38,7 @@ export class StudentActivityReportComponent implements OnInit {
 
     forkJoin([getClasses, getStudentActivites]).subscribe(([classes, activities]) => {
       this.activites = JSON.parse(activities.body);
-      this.filteredActivities = [...this.activites];
+      this.filteredActivities = structuredClone(this.activites);
       this.classes = classes;
 
       this.classes.forEach(element => {
@@ -65,12 +65,31 @@ export class StudentActivityReportComponent implements OnInit {
   }
 
   filter() {
-    this.filteredActivities = [...this.activites];
+    this.filteredActivities = structuredClone(this.activites);
 
     if (this.filterModel.selectedClass != '')
       this.filteredActivities = this.filteredActivities.filter(p => this.students.includes(p.student));
 
     if (this.filterModel.selectedStudent != '')
       this.filteredActivities = this.filteredActivities.filter(p => p.student == this.filterModel.selectedStudent);
+
+
+    if (this.filterModel.fromDate != null && this.filterModel.toDate != null) {
+      let fromDate = new Date(this.filterModel.fromDate).getTime();
+      let toDate = new Date(this.filterModel.toDate).getTime();
+
+      this.filteredActivities.forEach(act => {
+        return act.attempts.weeks = act.attempts.weeks.filter(p => {
+          let time = new Date(p).getTime();
+          return (fromDate < time && toDate > time)
+        })
+      })
+    }
+  }
+
+  clearDates() {
+    this.filterModel.fromDate = null;
+    this.filterModel.toDate = null;
+    this.filter();
   }
 }

@@ -28,6 +28,10 @@ export class AuthService {
         return localStorage.getItem(appConstant.loggedInUser);
     }
 
+    public get firstName(): string {
+        return JSON.parse(localStorage.getItem(appConstant.loggedInUser)!).email;
+    }
+
     addToUsers(user: UserModel) {
         let users = this.userList;
 

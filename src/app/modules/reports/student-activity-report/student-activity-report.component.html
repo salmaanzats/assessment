@@ -33,7 +33,7 @@
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-date-range-picker #picker>
                 <mat-date-range-picker-actions>
-                    <button mat-button matDateRangePickerCancel>Cancel</button>
+                    <button mat-button (click)="clearDates()">Cancel</button>
                     <button mat-raised-button color="primary" matDateRangePickerApply (click)="filter()">Apply</button>
                 </mat-date-range-picker-actions>
             </mat-date-range-picker>
