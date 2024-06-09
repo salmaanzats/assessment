@@ -14,6 +14,12 @@ export class AuthService {
     constructor() {
     }
 
+    public get isAuthenticated(): boolean {
+        if (this.loggedInUser != "null") return true;
+
+        return false;
+    }
+
     public get userList(): string | null {
         return localStorage.getItem(appConstant.users);
     }
@@ -51,7 +57,7 @@ export class AuthService {
     }
 
     logout() {
-        localStorage.setItem(appConstant.loggedInUser, JSON.stringify(''));
+        localStorage.setItem(appConstant.loggedInUser, JSON.stringify(null));
     }
 }
 

@@ -4,6 +4,7 @@ import { HeaderLayoutComponent } from './modules/layout/header-layout/header-lay
 import { PageNotFoundComponent } from './modules/shared/components/page-not-found/page-not-found.component';
 import { LoginComponent } from './modules/auth/login/login.component';
 import { RegisterComponent } from './modules/auth/register/register.component';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -18,8 +19,9 @@ export const routes: Routes = [
       {
         path: 'student-activity-report',
         loadChildren: () => import('./modules/reports/reports.module').then(t => t.ReportsModule)
-      }
-    ]
+      },
+    ],
+    canActivate: [authGuard],
   },
   {
     path: 'login',

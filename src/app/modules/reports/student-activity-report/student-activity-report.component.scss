@@ -41,6 +41,7 @@ select {
     border: 1px solid $grey;
     gap: 15px;
     border-radius: 5px;
+    flex-wrap: wrap;
 }
 
 .calendar {
