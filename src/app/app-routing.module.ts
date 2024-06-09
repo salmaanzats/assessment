@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderLayoutComponent } from './modules/layout/header-layout/header-layout.component';
 import { PageNotFoundComponent } from './modules/shared/components/page-not-found/page-not-found.component';
+import { LoginComponent } from './modules/auth/login/login.component';
+import { RegisterComponent } from './modules/auth/register/register.component';
 
 export const routes: Routes = [
   {
@@ -18,6 +20,14 @@ export const routes: Routes = [
         loadChildren: () => import('./modules/reports/reports.module').then(t => t.ReportsModule)
       }
     ]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: '**',

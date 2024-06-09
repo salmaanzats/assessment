@@ -5,8 +5,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { NoRecordsComponent } from './components/no-records/no-records.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MarkColorDirective } from './directives/mark-color.directive';
-import { FormsModule } from '@angular/forms';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
@@ -20,16 +20,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     CommonModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule ,
     MatDatepickerModule,
-    MatFormFieldModule       
+    MatFormFieldModule,
   ],
   exports: [
     BlockUiComponent,
     NoRecordsComponent,
     MarkColorDirective,
     FormsModule,
+    ReactiveFormsModule,
     MatDatepickerModule,
-    MatFormFieldModule       
+    MatFormFieldModule,
+    
   ]
 })
 export class SharedModule { }

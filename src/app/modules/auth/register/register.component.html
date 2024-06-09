@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="wrapper">
+        <h3>User Registration</h3>
+        <form [formGroup]="registerForm">
+
+            <div>
+                <label for="first">
+                    First Name:
+                </label>
+                <input type="text" id="first" name="first" placeholder="Enter your Username"
+                    formControlName="firstName">
+                <div class="badge badge-danger" *ngIf="validationModel.displayMessage.firstName">
+                    {{validationModel.displayMessage.firstName}}
+                </div>
+            </div>
+
+            <div>
+                <label for="first">
+                    Last Name:
+                </label>
+                <input type="text" id="first" name="first" placeholder="Enter your Username" formControlName="lastName">
+                <div class="badge badge-danger" *ngIf="validationModel.displayMessage.lastName">
+                    {{validationModel.displayMessage.lastName}}
+                </div>
+            </div>
+
+            <div>
+                <label for="first">
+                    Username:
+                </label>
+                <input type="text" id="first" name="first" placeholder="Enter your Username" formControlName="email">
+                <div class="badge badge-danger" *ngIf="validationModel.displayMessage.email">
+                    {{validationModel.displayMessage.email}}
+                </div>
+            </div>
+
+            <div>
+                <label for="password">
+                    Password:
+                </label>
+                <input type="password" id="password" name="password" placeholder="Enter your Password"
+                    formControlName="password">
+                <div class="badge badge-danger" *ngIf="validationModel.displayMessage.password">
+                    {{validationModel.displayMessage.password}}
+                </div>
+            </div>
+
+
+            <div class="wrap">
+                <button type="button" (click)="register()">
+                    Register
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
